@@ -4,3 +4,16 @@ body {
   color: black;
   font-size: 25px;
 }
+.dark-mode {
+  background-color: black;
+  color: white;
+}
+
+.text-presentation {
+  font-variant-emoji: text;
+}
+
+.emoji-presentation {
+  font-variant-emoji: emoji;
+}
+.utf-n { font-variant-emoji: unicode; }
