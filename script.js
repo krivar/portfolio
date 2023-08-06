@@ -6,6 +6,36 @@ let dotNormalMode = "padding: 25px; background-color: #de5257; color: #6b5051; f
 
 const mainBody = document.body;
 console.log(mainBody);  
+function insertPictures() {
+    console.log("----Inserting first picture") ; 
+    console.log("----Inserting first picture") ;
+    let L= ['E','F','N']; 
+    if( darkmode ){
+        const newnode = document.createElement("img" );
+        newnode.src = "./img/skogstrolletZOOM.jpg";
+        newnode.width= screen.width;
+        console.log( "node: ", newnode) ; 
+        let selector="#"+L[lang]+"TD0"; 
+        const here = document.querySelector( selector);
+        console.log( "object: ", here) ;
+        here.append(newnode); 
+    } else {
+        //const newnode = document.createElement("img",'src="./img/CommercialtrollDovre.jpg" width=400px' );
+        const newnode = document.createElement("img") ; 
+        newnode.src="./img/CommercialtrollDovre.jpg"; 
+        newnode.width= screen.width ; 
+        let selector="#"+L[lang]+"TL0" ;
+        const here = document.querySelector( selector);
+        if( here ) {
+            here.append(newnode); 
+        } else {
+            console.log( "Probably not "); 
+        }
+    }
+    console.log("Inserted ?");
+}
+
+
 
 
 function ShowPortfolio(){
@@ -52,12 +82,14 @@ function WhipeScreen(){
 function SetLang( langOrLanguage){
     console.log("SetLang :  SetLang with param:", langOrLanguage, "  " , typeof(langOrLanguage) ); 
    if( typeof(langOrLanguage) === "object"){
-    console.log("SetLang :  SetLang with param:", langOrLanguage.value , " is the value " ) ; 
+    console.log("2 SetLang :  SetLang with param:", langOrLanguage.value , " is the value " ) ; 
     lang = langOrLanguage.value ; 
    } else { 
     lang = langOrLanguage ; 
    }
    ChangeLanguage( lang ); 
+   console.log( "Hopefulle all text displayed - insert pics");
+   insertPictures(); 
 
 }
 function ChangeLanguage( l ) {
@@ -74,53 +106,8 @@ function ChangeLanguage( l ) {
         console.log("element is :", ele ) ; 
         ele.style.display='block';
     }
-    /*
-    { 
-        ele.style.display='block';
-
-    }*/
-    console.log( "Setlang in ", mode, "Language #", lang, ":", languages[ l ] , " >" , l);
-    return ;    
-    //for ( el of document.getElementsByClassName( "Prose" ) ){
-    //    el.style.display = 'none'; 
-    //    console.log( l, "#  ", languages[l] , " off ", el)
-    //
-    console.log("Query body "); 
-    const id = document.querySelectorAll('body') ;
-        console.log(" selectorAll() " , id ) ; 
-
-        for( let j in id ){ 
-            console.log(j); 
-            j.style.display = 'block'; 
-        }
-     
-    
-    console.log(id); 
-     
-    if( l ) {return; }  else { return ;
-    } 
-     //const elm = document.getElementById("kjerringZOOM");
-     //elm = document.getElementById("kjerringZOOM").children('img').css('display', 'none') ;
-     //elm = document.getElementById("kjerringZOOM") ;
-    // console.log( '---------------  looking for #kjerringZoom ---------'); 
-    // console.log( "--- elm ", elm  ); 
-    //if (elm.hasChildNodes) {
-     //   for (const elm1 in elm.childNodes.keys ){ console.log( "..........", elm1 ); }
-    //}
-    // const elm = document.querySelectorAll('' );
-    //    if(elm) {   elm.style.display  ='none' } 
-
-       
-     ; // warning affecting Global
-    for ( el of document.getElementsByClassName( languages[lang],  mode) ) {
-        el.style.visibility = 'visible'; 
-        el.style.display = 'block';
-        el.style.color = fcol ;
-        el.style.backgroundColor= bcol ; 
-        console.log( "visible block element: ", el )
-    }
-    console.log("language set to " , lang);
-    ShowPortfolio();
+    console.log( "ChangeLanguage in ", mode, "Language #", lang, ":", languages[ l ] , " >" , l, " inserting" );
+      
 }
 function ChangeDarkLight(){
     console.log( "Changing dark/light", darkmode); 
