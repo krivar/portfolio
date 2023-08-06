@@ -1,19 +1,38 @@
+@media only screen and ( max-width: 400px ) {
+  color: black ; font-family: Georgia, serif; }
+
+
+#Grid {
+  display: grid ; background-color: lightgrey;
+  grid: 400px / auto auto auto; }
+
+.languages { height: 60px;}
+
 body {
   padding: 25px;
-  background-color: white;
-  color: black;
   font-size: 25px;
+  margin-left: 5% ; margin-right: 5% ;
+  display : none ;
+}
+.fade-in-element {
+  opacity: 0;
 }
 .dark-mode {
   background-color: black;
   color: white;
 }
+.Sound{height: 24px;}
 
+#ETL0 { grid-column-start: 1; grid-column-end: 3;}
+#ETL1 {grid-area: 1 / 3 / span 3 / span 1  ;}
+
+
+/*
 .text-presentation {
   font-variant-emoji: text;
 }
-
 .emoji-presentation {
   font-variant-emoji: emoji;
 }
 .utf-n { font-variant-emoji: unicode; }
+*/

@@ -1,32 +1,132 @@
 <!DOCTYPE html>
+<html lang="en-GB">
 
-<html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title> krivar </title>
     </head>
 <body>
-    <select name="languageSelect" id="languages" onchange=SetLang(this) , font-variant-emoji="emoji">
-        <option value = 0>🇬🇧</option>
-        <option value = 1>🇫🇷</option>
-        <option value = 2>🇳🇴</option>
+  <main id="idLang" class="mainClass">
+    <select name="languageSelect" id="languages" class="mainClass"  onchange=SetLang(this) , font-variant-emoji="emoji">
+        <option value =0>🇬🇧</option>
+        <option value =1>🇫🇷</option>
+        <option value =2>🇳🇴</option>
     </select>
+    <span id="DayNightmode">
+      <button id=LightDarkMode onclick="ChangeDarkLight()"> 
+        🌓
+      </button>
+    </span>
+    <!--
+    <span id="Music">
+        <audio id="Sound" controls autoplay>
+            <source src="img/dovregubbenshall.ogg"      type="audio/ogg">
+              Error in audio element.
+        </audio>
+      </span>
+      <div>
+    -->
+    <span class = "textInfo" >
+      <div class="textInfo" id = "Grid">
+        <span class = "Prose English LightsOn" ></span>
+      <div class="Prose English LightsOn" id="ETL0">
+        You may associate <em>Trolls</em> with obnoxious nettizens speading false information, or triggering flamewars.
+        Yet, actual trolls exist in Norwegian and Nordic folklore, and they are even commercialized as dolls or teddybears.  
+      </div>
+      <div class="Prose English LightsOn" id="ETL1">
+        They are placed  outside tourist-shops, and sometimes smile to the cameras.  
+        At times they were even in olden times  presented as benevolent beings.  
+        Below is an illustration you may think is from Roald Dahls book called BFG (Big Friendly Giant) published in 1982, 
+        but this illustration is from 1886, when the artist did an illustration to Norwegian fairytales. 
+      </div>
+      <div class="Prose English LightsOn" id="ETL2">
+        Theodor Kittelsen, had a major advantage over other artists: he had seen them.  
+        a little patience we can see them even today, as their faces, and bodyparts are spread around in the landscape.
+      </div>
 
-    <section class="emojis">
-        <div class="emoji">
-          <h2>text presentation</h2>
-          <div class="text-presentation">☎</div>
-        </div>
-        <div class="emoji">
-          <h2>emoji presentation</h2>
-          <div class="emoji-presentation">☎</div>
-        </div>
-        <div class="emoji">
-            <h2>unicode presentation</h2>
-            <div class="utf-n">☎</div>
-          </div>
+      <div class="Prose English LightsOn" id="ETL3">
+        But to experience the terror of the Trolls, you have to switch off the lights 
+      </div>
+    </span>
+
+  <span class = "Prose English Darkmode" >
+    <div class="Prose English Darkmode" id="ETD0">
+    It is when it is dark that <em>Trolls</em> creater mahem.  You wouldn't go alone if   
+    you see any of these creatures
+  </div>
+  <div class="Prose English Darkmode" id="ETD1">
+    and there are other creatures lurkin about.  
+  </div>
+  <div class="Prose English Darkmode" id="ETD2">
+    Are you sure you would feel safe here ? 
+  </div>
+  <div class="Prose English Darkmode" id="ETD2">
+    maybe you should switch on the lights again ? 
+  </div>
+
+</span>
+
+    <span class="Prose French Darkmode">
+      <div class="Prose French Darkmode" id="FTD0">
+        C'est au crépuscule et pendant les longue nuits que le trolls son à leur aise. 
+        Il vaut mieux ne pas les rencontrer.     
+      </div>
+      <div class="Prose French Darkmode" id="FTD1">
+         Il y a des espèces maléfiques un peu partout
+      </div>
+      <div class="Prose French Darkmode" id="FTD2">
+        Et ne soyez pas si sûre de vous. 
+      </div>
+      <div class="Prose French Darkmode" id="FTD3">
+        Ne vaudait-il mieux pas rallumer la lumière ? 
+      </div>
+      </span>
+      <span class="Prose Norwegian Darkmode">
+      <div  class="Prose Norwegian Darkmode" id="NTD0" >
+        Det er i skumringen og om natten at trollen tusler frem.  Det er best å ikke treffe på dem.
+      </div>
+      <div class="Prose Norwegian Darkmode" id="NTD1">
+        det er ikke bare troll man skal passe seg for. 
+      </div>
+      <div class="Prose Norwegian Darkmode" id="NTD2">
+        og trygg kan du ikke føle deg!
+
+      </div>
+      <div class="Prose Norwegian Darkmode" id="NTD3">
+        Kanske best å få på lyset igjen.  
+      </div>
+    </span>
+    <span class="Prose Norwegian LightsOn"></span>
+      <div  class="Prose Norwegian LightsOn" id="NTL0" >
+        Nå for tiden forbinder vi <em>troll</em> med nokså skadelige mennesker som bruker internet for 
+        å spre løgn, og øke temperaturen in diskusjonene. Menn sannheten er at Troll er del av norsk og nordisk folketradisjon.
+        og blir til handelsvare som dukker og kosedyr.
+      </div>
+      <div class="Prose Norwegian LightsOn" id="NTL1">
+        Der står de da og stirrer ved turistbutikkene, og det hender de smiler til kamera.
+        Det hendte at et troll kunne gjøre noe godt.  Man kan lett tro at tegning under er en illustrasjon til Roalds Dahls
+        historie SVK (Stor Vennlig Kjempe) utgitt i 1982, men illissjonen er fra 1886, da da kunstneren utførte 
+        en rekke tegninger basert på norske folkeventyr  
+      </div>
+      <div class="Prose Norwegian LightsOn" id="NTL2">
+        Theodor Kittelse hadde fordelen fremfor andre kunstnere, for han så trollene.<br>
+        Med litt tålmodighet kan også se dem, der de har kropsdeler spredt i naturen.
+      </div>
+      <div class="Prose Norwegian LightsOn" id="NTL3">
+        Men for å kjenne på frykten for troll, må man slå av lyset.  
+      </div>
+    </span>
+      <div class="LightsOn Mobile" id="kjerringZOOM" display='none'>
+        <img src="./img/SteinKjerringZOOM.jpg " width="300" alt="head of troll detail" >
+      </div>
+      <div class="LightsOn Normal" id="idSteinKjerringa" display="none" >
+        <img  src="./img/SteinKjerring.jpg" width="600" alt="StoneTROLL" display="none" >
+      </div>
+    </div>
+  </span>
       </section>
+    </main>
 
     <script src="./script.js"></script>
 </body>
