@@ -1,4 +1,4 @@
-let lang=0 ; 
+let lang=1; 
 let darkmode = true ;
 let languages = ["English", "French", "Norwegian"]; 
 let dotDarkMode= "background-color: black; color: white;  font-size: 25px; " ;  
@@ -7,36 +7,35 @@ let dotNormalMode = "padding: 25px; background-color: #de5257; color: #6b5051; f
 const mainBody = document.body;
 console.log(mainBody);  
 function insertPictures() {
-    console.log("----Inserting first picture") ; 
-    console.log("----Inserting first picture") ;
-    let L= ['E','F','N']; 
-    if( darkmode ){
+    function X(xlink,sel, wx){
         const newnode = document.createElement("img" );
-        newnode.src = "./img/skogstrolletZOOM.jpg";
-        newnode.width= screen.width;
-        console.log( "node: ", newnode) ; 
-        let selector="#"+L[lang]+"TD0"; 
-        const here = document.querySelector( selector);
-        console.log( "object: ", here) ;
-        here.append(newnode); 
-    } else {
-        //const newnode = document.createElement("img",'src="./img/CommercialtrollDovre.jpg" width=400px' );
-        const newnode = document.createElement("img") ; 
-        newnode.src="./img/CommercialtrollDovre.jpg"; 
-        newnode.width= screen.width ; 
-        let selector="#"+L[lang]+"TL0" ;
-        const here = document.querySelector( selector);
-        if( here ) {
-            here.append(newnode); 
-        } else {
-            console.log( "Probably not "); 
-        }
+        newnode.src = xlink;
+        if( undefined === wx ) {wx=screen.availWidth ;}
+        newnode.width= wx ; 
+        console.log( "Image OBJECT: ",newnode, " : ", newnode.sizes) ;
+        
+        const here = document.querySelector( sel);
+        console.log( "Location:(", sel, ") ",here); 
+        here.appendChild(newnode);
     }
+    console.log("----Inserting first picture") ; 
+    let L= ['E','F','N']; 
+    let Z =''; 
+
+    if( darkmode ){
+        Z='D'; 
+        X("./img/skogstrolletZOOM.jpg", "#"+L[lang]+"T"+Z+"0" , 2*screen.availWidth/4 );
+        X("./img/nøkken.jpg", "#"+L[lang]+"T"+Z+"1" , );
+        
+    } else { 
+        Z='L'; 
+        X("./img/CommercialtrollDovre.jpg", "#"+L[lang]+"T"+Z+"0" )  ; 
+        X("./img/SVK.jpg", "#"+L[lang]+"T"+Z+"1" , screen.availWidth/3 ); 
+        X("./img/SteinKjerringZOOM.jpg","#"+L[lang]+"T"+Z+"2", screen.availWidth/4) 
+    }
+        
     console.log("Inserted ?");
 }
-
-
-
 
 function ShowPortfolio(){
 const mainH1Element = document.createElement("h1") ;
@@ -48,7 +47,7 @@ const  myPortfolio= [ "Complete portfolio on the Web",
 
 mainH1Element.innerHTML = myPortfolio[lang]   ;
 }
-ShowPortfolio();
+// ShowPortfolio();
 //  var element = document.querySelector('.fade-in-element'); 
 function fadeIn(el) {
         var opacity = 0; // Initial opacity
@@ -62,7 +61,6 @@ function fadeIn(el) {
                    el.style.display = 'none'; // Hide the element
                 }
              }
-
             var interval = setInterval(opaq() , 50);
         }
 }
@@ -74,6 +72,10 @@ function WhipeScreen(){
     {  
         ele.style.display='none' ; 
 
+    }
+    for ( const ele of  document.querySelectorAll("img")) 
+    {  
+        ele.style.display='none' ; 
     }
     
     console.log( "   Screen cleared")
@@ -121,10 +123,11 @@ function ChangeDarkLight(){
 }
 
 function onLoadFunctions(){
-    let lang=0 ; 
+    let lang=0 ; // Obviously should test against browserlanguages ;  
     ChangeDarkLight()
     console.log("On Load Active");
     SetLang(lang); 
+    
 
 }
 console.log("language is now  " +lang);
